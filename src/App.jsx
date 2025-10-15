@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <nav className="nav">
+        <nav>
           <Link to="/">ホーム</Link> |{" "}
           <Link to="/contact">お問い合わせ</Link> |{" "}
           <Link to="/privacy-policy">プライバシーポリシー</Link>
