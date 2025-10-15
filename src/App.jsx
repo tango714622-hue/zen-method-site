@@ -1,7 +1,10 @@
 import React from "react";
 import "./index.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Contact from "./pages/Contact";
 
-function App() {
+function Home() {
   return (
     <div className="container">
       <h1>Zen Method コーチングサイト</h1>
@@ -31,7 +34,7 @@ function App() {
       </div>
 
       <div className="ad-space">
-        広告スペース（ここにバナーやリンクを入れられます）
+        ここに Google AdSense 広告が表示されます
       </div>
 
       {/* C帯以下向け解説 */}
@@ -55,14 +58,33 @@ function App() {
           GC以上のプレイヤーは、ZENの攻守の動きを意識し、状況判断とリズムを最適化することが重要です。
         </p>
         <ul>
-          <li>攻めではボールを持たず、チャンスがあれば地上エアドリブルからフリッププリセットへつなぐ</li>
-          <li>守りでは味方のボール保持を信頼し、少し離れた位置でカバーする意識</li>
+          <li>
+            攻めではボールを持たず、チャンスがあれば地上エアドリブルからフリッププリセットへつなぐ
+          </li>
+          <li>
+            守りでは味方のボール保持を信頼し、少し離れた位置でカバーする意識
+          </li>
           <li>攻守の切り替え時のリズムを意識し、無駄な動きを減らす</li>
           <li>試合中の味方とのポジション調整をZENの動きから学ぶ</li>
         </ul>
       </section>
+
+      <footer className="footer">
+        <Link to="/privacy-policy">プライバシーポリシー</Link> |{" "}
+        <Link to="/contact">お問い合わせ</Link>
+      </footer>
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
+}
