@@ -1,8 +1,16 @@
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
-})
+  plugins: [react()],
+  build: {
+    outDir: "b", // ビルド先フォルダ名を短く
+    rollupOptions: {
+      output: {
+        entryFileNames: "index.js",      // JSファイル名を短く固定
+        chunkFileNames: "[name].js",     // 分割JSも短く
+        assetFileNames: "[name][extname]"// CSSや画像も短く
+      }
+    }
+  }
+});
