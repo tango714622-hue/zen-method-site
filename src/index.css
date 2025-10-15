@@ -1,0 +1,15 @@
+/* src/index.css */
+
+/* Tailwind ディレクティブ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基本のリセット＋フォント設定 */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Tailwind の bg や text を使うので body に色指定は不要 */
